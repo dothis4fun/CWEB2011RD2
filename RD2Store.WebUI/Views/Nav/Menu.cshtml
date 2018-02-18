@@ -1,0 +1,18 @@
+﻿@model IEnumerable<string>
+<li class="nav-item @(ViewBag.SelectedCategory == null ? " active" : "")">
+    @Html.ActionLink("Home", "List", "Product", null, new { @class = "nav-link" })
+</li>
+@foreach (var link in Model)
+{
+<li class="nav-item @(link == ViewBag.SelectedCategory ? " active" : "")">
+    @Html.RouteLink(link, new
+{
+    controller = "Product",
+    action = "List",
+    category = link,
+    system = ViewBag.SelectedSystem,
+        page = 1
+    },
+        new { @class = "nav-link" })
+</li>
+}

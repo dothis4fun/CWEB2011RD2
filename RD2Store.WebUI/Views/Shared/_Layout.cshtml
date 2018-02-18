@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Games 4 All</a>
+                @Html.Action("Summary", "Cart")
+            </div>
+            <div class="navbar-right">
+                @Html.ActionLink("Admin Area", "Login", "Account", null, new { @class = "btn btn-default navbar-btn" })
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container row">
+            <ul id="categories" class="nav nav-pills nav-justified">
+                @Html.Action("Menu", "Nav")
+            </ul>
+        </div>
+        <div class="row col-xs-offset-1 col-xs-10">
+            <ul id="systems" class="nav nav-pills nav-justified">
+                @Html.Action("SystemMenu", "Nav")
+            </ul>
+        </div>
+        <div class="row col-xs-offset-2 col-xs-8">
+            <div class="btn-group-justified">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-10">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>
